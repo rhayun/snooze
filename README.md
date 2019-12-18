@@ -1,6 +1,8 @@
 Laravel Snooze
 =================================
 
+### made by https://github.com/thomasjohnkane/snooze
+
 > Schedule future notifications and reminders in Laravel
 
 <p align="center">
