@@ -25,12 +25,12 @@
   },
   "autoload": {
     "psr-4": {
-      "rhayun\\Snooze\\": "src"
+      "Thomasjohnkane\\Snooze\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "rhayun\\Snooze\\Tests\\": "tests"
+      "Thomasjohnkane\\Snooze\\Tests\\": "tests"
     },
     "files": [
       "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
@@ -43,7 +43,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "rhayun\\Snooze\\ServiceProvider"
+        "Thomasjohnkane\\Snooze\\ServiceProvider"
       ]
     }
   },
