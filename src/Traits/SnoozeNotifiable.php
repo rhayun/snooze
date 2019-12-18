@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Thomasjohnkane\Snooze\Traits;
 
 use DateTimeInterface;
