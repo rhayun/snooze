@@ -87,7 +87,7 @@ class ScheduledNotification extends Model
      *
      * @return bool
      */
-    public function shouldInterrupt(?object $notification = null, ?object $notifiable = null): bool
+    public function shouldInterrupt($notification = null, $notifiable = null): bool
     {
         if (! $notification) {
             $notification = $this->serializer->unserializeNotification($this->notification);
