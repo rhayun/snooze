@@ -14,7 +14,7 @@ class Serializer
         return new self();
     }
 
-    public function serializeNotifiable(object $notifiable): string
+    public function serializeNotifiable($notifiable): string
     {
         return serialize(self::getSerializedPropertyValue(clone $notifiable));
     }
@@ -24,12 +24,12 @@ class Serializer
         return serialize(clone $notification);
     }
 
-    public function unserializeNotifiable(string $serialized)
+    public function unserializeNotifiable($serialized)
     {
         return $this->getRestoredPropertyValue(unserialize($serialized));
     }
 
-    public function unserializeNotification(string $serialized)
+    public function unserializeNotification($serialized)
     {
         return unserialize($serialized);
     }
