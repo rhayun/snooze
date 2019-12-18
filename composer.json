@@ -1,6 +1,6 @@
 {
   "name": "rhayun/snooze",
-  "description": "Schedule future notifications and reminders in Laravel",
+  "description": "Compabilioty to php 7.1 - made by Thomas Kane - Schedule future notifications and reminders in Laravel",
   "license": "MIT",
   "keywords": [
     "scheduled",
@@ -25,12 +25,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Thomasjohnkane\\Snooze\\": "src"
+      "rhayun\\Snooze\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Thomasjohnkane\\Snooze\\Tests\\": "tests"
+      "rhayun\\Snooze\\Tests\\": "tests"
     },
     "files": [
       "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
@@ -43,7 +43,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Thomasjohnkane\\Snooze\\ServiceProvider"
+        "rhayun\\Snooze\\ServiceProvider"
       ]
     }
   },
