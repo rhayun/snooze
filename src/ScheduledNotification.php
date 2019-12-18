@@ -35,7 +35,7 @@ class ScheduledNotification
      * @throws SchedulingFailedException
      */
     public static function create(
-        object $notifiable,
+        $notifiable,
         Notification $notification,
         DateTimeInterface $sendAt
     ): self {
@@ -62,7 +62,7 @@ class ScheduledNotification
         ]));
     }
 
-    public static function find(int $scheduledNotificationId): ?self
+    public static function find($scheduledNotificationId): ?self
     {
         $modelClass = self::getScheduledNotificationModelClass();
 
@@ -71,7 +71,7 @@ class ScheduledNotification
         return $model ? new self($model) : null;
     }
 
-    public static function findByType(string $notificationClass, bool $includeSent = false): Collection
+    public static function findByType($notificationClass, $includeSent = false): Collection
     {
         $modelClass = self::getScheduledNotificationModelClass();
 
@@ -82,7 +82,7 @@ class ScheduledNotification
         return self::collection($modelClass::whereNotificationType($notificationClass)->whereNull('sent_at')->get());
     }
 
-    public static function findByTarget(object $notifiable): ?Collection
+    public static function findByTarget($notifiable): ?Collection
     {
         if (! $notifiable instanceof Model) {
             return null;
@@ -98,7 +98,7 @@ class ScheduledNotification
         return self::collection($models);
     }
 
-    public static function all(bool $includeSent = false, bool $includeCanceled = false): Collection
+    public static function all($includeSent = false, $includeCanceled = false): Collection
     {
         $modelClass = self::getScheduledNotificationModelClass();
         $query = $modelClass::query();
@@ -114,7 +114,7 @@ class ScheduledNotification
         return self::collection($query->get());
     }
 
-    public static function cancelByTarget(object $notifiable): int
+    public static function cancelByTarget($notifiable): int
     {
         if (! $notifiable instanceof Model) {
             throw new LaravelSnoozeException(
@@ -130,7 +130,7 @@ class ScheduledNotification
             ->update(['cancelled_at' => Carbon::now()]);
     }
 
-    public static function cancelAnonymousNotificationsByChannel(string $channel, string $route): int
+    public static function cancelAnonymousNotificationsByChannel($channel, $route): int
     {
         $modelClass = self::getScheduledNotificationModelClass();
 
