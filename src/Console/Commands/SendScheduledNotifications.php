@@ -59,7 +59,6 @@ class SendScheduledNotifications extends Command
                 $notification->send();
                 $succeeded++;
             } catch (\Exception $exception) {
-                $bar->setMessage($exception->getMessage());
                 Log::error('notification_id: ' . $notification->id . ' message: ' . $exception->getMessage());
             }
             $counter++;
@@ -67,6 +66,6 @@ class SendScheduledNotifications extends Command
 
         $bar->finish();
 
-        $this->info('Finished Sending Scheduled Notifications');
+        $this->info('Finished Sending Scheduled Notifications ' . $succeeded . ' / ' . $counter);
     }
 }
