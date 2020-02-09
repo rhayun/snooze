@@ -4,6 +4,7 @@ namespace Thomasjohnkane\Snooze\Console\Commands;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Log;
 use Thomasjohnkane\Snooze\Models\ScheduledNotification;
 
 class SendScheduledNotifications extends Command
