@@ -51,15 +51,17 @@ class SendScheduledNotifications extends Command
 
         $this->info(sprintf('Sending %d scheduled notifications...', $notifications->count()));
 
-        $notifications->each(function (ScheduledNotification $notification) use ($bar) {
+        $succeeded = $counter = 0;
+        $notifications->each(function (ScheduledNotification $notification) use ($bar, &$succeeded, &$counter) {
             $bar->advance();
-
             try {
                 $notification->send();
-            } catch (\Exception $e) {
-                report($e);
-                $this->error($e->getMessage());
+                $succeeded++;
+            } catch (\Exception $exception) {
+                $bar->setMessage($exception->getMessage());
+                Log::error('notification_id: ' . $notification->id . ' message: ' . $exception->getMessage());
             }
+            $counter++;
         });
 
         $bar->finish();
